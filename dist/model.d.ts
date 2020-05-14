@@ -1,4 +1,4 @@
-/* v0.50.6-2-gc0c6d53-dirty */import { Mathfield } from './mathfield';
+/* v0.50.0-46-g549a5bf-dirty */import { Mathfield } from './mathfield';
 export interface Model {
     mathfield: Mathfield;
 }
