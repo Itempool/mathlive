@@ -1,4 +1,5 @@
-/* v0.50.0-45-g0dd971c */import { ParserErrorListener, MacroDictionary, ParseMode } from './core';
+/* v0.50.0-45-g0dd971c */
+import { ParserErrorListener, MacroDictionary, ParseMode } from './core';
 import { InlineShortcutDefinition } from './shortcuts';
 import type { Mathfield } from './mathfield';
 export declare type TextToSpeechOptions = {

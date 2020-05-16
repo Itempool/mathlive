@@ -1,4 +1,5 @@
-/* v0.50.0-45-g0dd971c *//**
+/* v0.50.0-45-g0dd971c */
+/**
  *
  * Use MathLive to render and edit mathematical formulas in your browser.
  *

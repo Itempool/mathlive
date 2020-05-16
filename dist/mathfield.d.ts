@@ -1,4 +1,5 @@
-/* v0.50.0-45-g0dd971c */import { Selector } from './commands';
+/* v0.50.0-45-g0dd971c */
+import { Selector } from './commands';
 import { MathfieldConfig } from './config';
 import { ParseMode, MacroDictionary, Style } from './core';
 /**

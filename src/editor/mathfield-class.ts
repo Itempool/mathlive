@@ -144,7 +144,11 @@ export class MathfieldPrivate implements Mathfield {
         // 5.1/ The aria-live region for announcements
         let markup = '';
         if (!this.config.substituteTextArea) {
-            if (/android|ipad|ipod|iphone/i.test(navigator.userAgent)) {
+            if (
+                /android|ipad|ipod|iphone/i.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' &&
+                    navigator.maxTouchPoints > 1)
+            ) {
                 // On Android or iOS, don't use a textarea, which has the side effect of
                 // bringing up the OS virtual keyboard
                 markup += `<span class='ML__textarea'>

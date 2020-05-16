@@ -1,4 +1,5 @@
-/* v0.50.0-45-g0dd971c */import { ParseMode } from './core';
+/* v0.50.0-45-g0dd971c */
+import { ParseMode } from './core';
 /**
  * An inline shortcut can be specified as a simple string or as
  * an object literal with additional options:

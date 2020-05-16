@@ -1,4 +1,5 @@
-/* v0.50.0-45-g0dd971c *//**
+/* v0.50.0-45-g0dd971c */
+/**
  * @internal
  */
 declare type Filter<T, Cond, U extends keyof T = keyof T> = {
