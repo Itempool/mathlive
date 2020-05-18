@@ -357,6 +357,7 @@ function toggleVirtualKeyboard(mathfield: MathfieldPrivate, theme?): boolean {
         }, 1);
     } else if (mathfield.virtualKeyboard) {
         mathfield.virtualKeyboard.classList.remove('is-visible');
+        mathfield.$blur();
     }
     if (typeof mathfield.config.onVirtualKeyboardToggle === 'function') {
         mathfield.config.onVirtualKeyboardToggle(

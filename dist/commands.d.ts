@@ -1,4 +1,4 @@
-/* v0.50.0-48-g873438a */import { Keys } from './types-utils';
+/* v0.50.0-50-gf337471-dirty */import { Keys } from './types-utils';
 import { ParseMode } from './core';
 import { Mathfield } from './mathfield';
 import { Model } from './model';
