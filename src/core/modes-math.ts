@@ -259,3 +259,8 @@ register('math', {
     emitLatexRun: emitLatexMathRun,
     applyStyle,
 });
+
+register('chem', {
+    emitLatexRun: emitLatexMathRun,
+    applyStyle,
+});
