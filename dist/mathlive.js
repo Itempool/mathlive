@@ -17855,7 +17855,7 @@ M500 241 v40 H399408 v-40z M500 435 v40 H400000 v-40z`,
         '∑': { mode: 'math', value: '\\sum' },
         sum: { mode: 'math', value: '\\sum_{#?}^{#?}' },
         prod: { mode: 'math', value: '\\prod_{#?}^{#?}' },
-        sqrt: { mode: 'math', value: '\\sqrt' },
+        sqrt: { mode: 'math', value: '\\sqrt{#?}' },
         // '∫':                    '\\int',             // There's a alt-B command for this
         '∆': { mode: 'math', value: '\\differentialD' },
         '∂': { mode: 'math', value: '\\differentialD' },
@@ -25789,6 +25789,10 @@ M500 241 v40 H399408 v-40z M500 435 v40 H400000 v-40z`,
         return fontName;
     }
     register('math', {
+        emitLatexRun: emitLatexMathRun,
+        applyStyle: applyStyle$3,
+    });
+    register('chem', {
         emitLatexRun: emitLatexMathRun,
         applyStyle: applyStyle$3,
     });
