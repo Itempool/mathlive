@@ -70,21 +70,14 @@ export async function loadFonts(
             'KaTeX_Size3',
             'KaTeX_Size4',
         ];
-        // for (const fontFace of document.fonts.values()) { console.log(fontFace.family)}
-        let fontsLoaded = false;
 
-        // Firefox returns true for fonts that are not loaded...
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=1252821 🤦‍♂️
-        // So, if on Firefox, always assume that the fonts are not loaded.
-        if (!/firefox/i.test(navigator.userAgent)) {
-            try {
-                fontsLoaded = fontFamilies.every((x) =>
-                    document['fonts'].check('16px ' + x)
-                );
-            } catch (e) {
-                fontsLoaded = false;
-            }
-        }
+        const loadedFontFamiles = Array.from(document.fonts.values()).map(
+            (f) => f.family
+        );
+
+        const fontsLoaded = fontFamilies.every((font) =>
+            loadedFontFamiles.includes(font)
+        );
 
         if (!fontsLoaded) {
             if (document.body.classList.contains('ML__fonts-loading')) {
