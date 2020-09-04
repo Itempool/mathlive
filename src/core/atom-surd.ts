@@ -68,7 +68,7 @@ registerAtomType('surd', (context: Context, atom: Atom): Span[] => {
 
     const body = makeVlist(context, [inner, lineClearance, line, ruleWidth]);
 
-    if (typeof atom.index === 'undefined') {
+    if (atom.index == null) {
         return [atom.bind(context, makeSpan([delim, body], 'sqrt', 'mord'))];
     }
 
