@@ -5505,7 +5505,7 @@ M500 241 v40 H399408 v-40z M500 435 v40 H400000 v-40z`,
         };
     }, (name, _parent, atom, emit) => {
         let args = '';
-        if (typeof atom.index !== 'undefined') {
+        if (atom.index != null) {
             args += `[${emit(atom, atom.index)}]`;
         }
         args += `{${emit(atom, atom.body)}}`;
@@ -10465,7 +10465,7 @@ M500 241 v40 H399408 v-40z M500 435 v40 H400000 v-40z`,
         line.applyStyle(atom.getStyle());
         line.height = ruleWidth;
         const body = makeVlist(context, [inner, lineClearance, line, ruleWidth]);
-        if (typeof atom.index === 'undefined') {
+        if (atom.index == null) {
             return [atom.bind(context, makeSpan([delim, body], 'sqrt', 'mord'))];
         }
         // Handle the optional root index
@@ -11984,19 +11984,8 @@ M500 241 v40 H399408 v-40z M500 435 v40 H400000 v-40z`,
                 'KaTeX_Size3',
                 'KaTeX_Size4',
             ];
-            // for (const fontFace of document.fonts.values()) { console.log(fontFace.family)}
-            let fontsLoaded = false;
-            // Firefox returns true for fonts that are not loaded...
-            // https://bugzilla.mozilla.org/show_bug.cgi?id=1252821 🤦‍♂️
-            // So, if on Firefox, always assume that the fonts are not loaded.
-            if (!/firefox/i.test(navigator.userAgent)) {
-                try {
-                    fontsLoaded = fontFamilies.every((x) => document['fonts'].check('16px ' + x));
-                }
-                catch (e) {
-                    fontsLoaded = false;
-                }
-            }
+            const loadedFontFamiles = Array.from(document.fonts.values()).map((f) => f.family);
+            const fontsLoaded = fontFamilies.every((font) => loadedFontFamiles.includes(font));
             if (!fontsLoaded) {
                 if (document.body.classList.contains('ML__fonts-loading')) {
                     return;
@@ -17855,7 +17844,7 @@ M500 241 v40 H399408 v-40z M500 435 v40 H400000 v-40z`,
         '∑': { mode: 'math', value: '\\sum' },
         sum: { mode: 'math', value: '\\sum_{#?}^{#?}' },
         prod: { mode: 'math', value: '\\prod_{#?}^{#?}' },
-        sqrt: { mode: 'math', value: '\\sqrt' },
+        sqrt: { mode: 'math', value: '\\sqrt{#?}' },
         // '∫':                    '\\int',             // There's a alt-B command for this
         '∆': { mode: 'math', value: '\\differentialD' },
         '∂': { mode: 'math', value: '\\differentialD' },
@@ -25789,6 +25778,10 @@ M500 241 v40 H399408 v-40z M500 435 v40 H400000 v-40z`,
         return fontName;
     }
     register('math', {
+        emitLatexRun: emitLatexMathRun,
+        applyStyle: applyStyle$3,
+    });
+    register('chem', {
         emitLatexRun: emitLatexMathRun,
         applyStyle: applyStyle$3,
     });
